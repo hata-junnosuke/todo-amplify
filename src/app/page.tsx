@@ -1,7 +1,8 @@
 import { Amplify } from 'aws-amplify';
 import config from '../aws-exports.js';
-import { generateServerClientUsingCookies } from '@aws-amplify/adapter-nextjs/api';
-import { cookies } from 'next/headers';
+// import { generateServerClientUsingCookies } from '@aws-amplify/adapter-nextjs/api';
+import { generateClient } from 'aws-amplify/api';
+// import { cookies } from 'next/headers';
 import { revalidatePath } from 'next/cache';
 import * as mutations from '@/graphql/mutations';
 // 1. Add the queries as an import
@@ -14,15 +15,16 @@ import * as queries from '@/graphql/queries';
 Amplify.configure(config);
 
 
-const cookiesClient = generateServerClientUsingCookies({
-  // @ts-ignore
-  config,
-  cookies
-});
+// const client = generateServerClientUsingCookies({
+//   // @ts-ignore
+//   config,
+//   cookies
+// });
+const client = generateClient();
 
 async function createTodo(formData: FormData) {
   'use server';
-  const { data } = await cookiesClient.graphql({
+  const { data } = await client.graphql({
     query: mutations.createTodos,
     variables: {
       input: {
@@ -38,7 +40,7 @@ async function createTodo(formData: FormData) {
 
 export default async function Home() {
   // 2. Fetch additional todos
-  const { data, errors } = await cookiesClient.graphql({
+  const { data, errors } = await client.graphql({
     query: queries.listTodos
   });
 
