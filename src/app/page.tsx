@@ -1,5 +1,5 @@
-import { Amplify } from 'aws-amplify';
-import config from '../aws-exports.js';
+// import { Amplify } from 'aws-amplify';
+// import config from '../aws-exports.js';
 // import { generateServerClientUsingCookies } from '@aws-amplify/adapter-nextjs/api';
 import { generateClient } from 'aws-amplify/api';
 // import { cookies } from 'next/headers';
@@ -12,7 +12,7 @@ import * as queries from '@/graphql/queries';
 
 
 // @ts-ignore
-Amplify.configure(config);
+// Amplify.configure(config);
 
 
 // const client = generateServerClientUsingCookies({
