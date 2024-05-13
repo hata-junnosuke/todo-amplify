@@ -1,5 +1,5 @@
 // import { Amplify } from 'aws-amplify';
-// import config from '../aws-exports.js';
+import config from '../aws-exports.js';
 import { generateServerClientUsingCookies } from '@aws-amplify/adapter-nextjs/api';
 import { cookies } from 'next/headers';
 import { revalidatePath } from 'next/cache';
@@ -7,7 +7,7 @@ import * as mutations from '@/graphql/mutations';
 // 1. Add the queries as an import
 import * as queries from '@/graphql/queries';
 
-import config from '@/amplifyconfiguration.json';
+// import config from '@/amplifyconfiguration.json';
 
 
 // Amplify.configure(config);
