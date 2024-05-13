@@ -29,7 +29,7 @@ async function createTodo(formData: FormData) {
     }
   });
 
-  console.log('Created Todo: ', data?.createTodo);
+  console.log('Created Todo: ', data?.createTodos);
 
   revalidatePath('/');
 }
@@ -40,7 +40,7 @@ export default async function Home() {
     query: queries.listTodos
   });
 
-  const todos = data.listTodos.items;
+  const todos = data?.listTodos?.items ?? [];
 
   return (
     <div
@@ -66,7 +66,7 @@ export default async function Home() {
       {/* 4. Display todos*/}
       <ul>
         {todos.map((todo) => {
-          return <li style={{ listStyle: 'none' }}>{todo.name}</li>;
+          return <li style={{ listStyle: 'none' }}>{todo?.name ?? 'No name'}</li>;
         })}
       </ul>
     </div>
