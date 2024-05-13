@@ -10,6 +10,14 @@
       "StackName": "amplify-todoamplified-dev-73cb2",
       "StackId": "arn:aws:cloudformation:ap-northeast-1:905418297788:stack/amplify-todoamplified-dev-73cb2/8dbdf680-10fa-11ef-b3c0-0e1099382def",
       "AmplifyAppId": "d346d6amjr03ip"
+    },
+    "categories": {
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d346d6amjr03ip",
+          "type": "cicd"
+        }
+      }
     }
   }
 }
